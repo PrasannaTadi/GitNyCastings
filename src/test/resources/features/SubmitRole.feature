@@ -12,4 +12,5 @@ Feature: Submission for the new Role
     And Select the Media
     Then Click on the Submit button
     And Verify applied tag is showing on the main casting notices page
+    And click on logout button
 
