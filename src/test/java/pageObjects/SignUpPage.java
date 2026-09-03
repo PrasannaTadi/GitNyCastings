@@ -138,16 +138,21 @@ public class SignUpPage {
 
     }
     public void clickSignUp(){
-
-
         //driver.findElement(signupBtn).click();
-        WebElement checkbox = wait.until(
-                ExpectedConditions.presenceOfElementLocated(signupBtn)
+        WebElement signUpButton = wait.until(
+                ExpectedConditions.elementToBeClickable(signupBtn)
         );
+        System.out.println("Sign Up displayed: " + signUpButton.isDisplayed());
+        System.out.println("Sign Up enabled: " + signUpButton.isEnabled());
 
-        ((JavascriptExecutor) driver)
-                .executeScript("arguments[0].click();", checkbox);
+        new Actions(driver)
+                .moveToElement(signUpButton)
+                .pause(Duration.ofMillis(500))
+                .click()
+                .perform();
 
+        System.out.println("Sign Up button clicked");
+        System.out.println("Current URL: " + driver.getCurrentUrl());
     }
  public void clickOnDirectorbutton(){
         driver.findElement(CastingDirector).click();
